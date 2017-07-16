@@ -42,6 +42,7 @@ group :development, :test do
 
   gem 'pry'  # 断点binding.pry
   gem 'awesome_rails_console'
+  gem 'annotate'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
