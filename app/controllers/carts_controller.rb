@@ -15,5 +15,8 @@ class CartsController < ApplicationController
     flash[:notice] = "#{cart_item.product.title}已被删除"
   end
 
-
+  def checkout
+    @order = Order.new
+  end
+  
 end

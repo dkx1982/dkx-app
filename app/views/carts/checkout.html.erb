@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>购物明细</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>商品明细</th>
+          <th>名称</th>
+          <th>单价</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_cart.cart_items.each do |cart_item| %>
+          <tr>
+            <td>
+              <% if cart_item.product.image.present? %>
+                <%= link_to product_path(cart_item.product) do %>
+                  <%= image_tag(cart_item.product.image.thumb.url, class: "thumbnail")%>
+                <% end %>
+              <% else %>
+                <%= image_tag("http://placehold.it/200x200&text=No Pic",class: "thumbnail")%>
+              <% end %>
+            </td>
+            <td><%= cart_item.product.title %></td>
+            <td><%= cart_item.product.price %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="total clearfix">
+      <span class="pull-right">
+        总计 <%= render_cart_total_price(current_cart)%> CNY
+      </span>
+    </div>
+    <div class="checkout clearfix">
+      <%= link_to "生成订单", orders_path(@order), method: :post, class: "btn btn-lg btn-danger pull-right"%>
+    </div>
+  </div>
+</div>
