@@ -16,4 +16,8 @@ class Cart < ApplicationRecord
     end
     sum
   end
+
+  def dkx_clean!
+    self.cart_items.destroy_all
+  end
 end

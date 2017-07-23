@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   end
   resources :carts do
     collection do
-      post :all_delete
+      delete :all_delete
+      post :checkout
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
