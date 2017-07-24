@@ -10,6 +10,11 @@
 #
 
 class Order < ApplicationRecord
+  before_create :dkx_token
   belongs_to :user
   has_many :product_lists
+
+  def dkx_token
+    self.token = SecureRandom.uuid
+  end
 end
